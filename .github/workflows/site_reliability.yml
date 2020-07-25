@@ -1,0 +1,23 @@
+name: Site Reliability
+on: 
+  push:
+    branches: 
+      - master
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 5 * * *'
+jobs:
+  crawl_for_broken_links:
+    runs-on: ubuntu-latest
+    name: Broken-Links-Crawler
+    steps:
+    - name: Debug Action
+      uses: hmarr/debug-action@v1.0.0
+    - name: Checking links
+      id: checking
+      uses: ScholliYT/Broken-Links-Crawler-Action@v2
+      with:
+        website_url: 'https://gam.ink'
+        verbose: 'true'
+        max_retry_time: 30
+        max_retries: 5
