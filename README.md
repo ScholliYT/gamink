@@ -1,2 +1,2 @@
 # Gam.ink GMNK
-Webiste for gam.ink
+Website for gam.ink
